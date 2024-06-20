@@ -25,7 +25,7 @@ namespace TestFramework
         {
             driver.Navigate().GoToUrl("https://www.browserstack.com/");
 
-            //Assert.IsTrue(driver.FindElement(By.Id("logo")).Displayed);
+            Assert.That(driver.FindElement(By.XPath("//img[@alt='BrowserStack Logo']")).Displayed);
         }
 
         [TearDown]
