@@ -2,27 +2,30 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System.IO;
 
 namespace TestFramework
 {
-    internal class Demo
+    
+    class Demo
     {
         IWebDriver driver;
 
         [SetUp]
         public void startBrowser()
         {
-            driver = new ChromeDriver(Path.GetFullPath("C:\\Users\\User\\source\\repos\\TestFramework\\TestFramework\\drivers"));
+            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            driver = new ChromeDriver(path + @"\drivers\");
+
         }
 
         [Test]
         public void test()
         {
-            driver.Url = "http://www.google.co.in";
+            driver.Navigate().GoToUrl("https://www.browserstack.com/");
+
+            //Assert.IsTrue(driver.FindElement(By.Id("logo")).Displayed);
         }
 
         [TearDown]
