@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace TestFramework.PageObject
+namespace TestFramework.PageObjects
 {
     public class HomePage
     {
